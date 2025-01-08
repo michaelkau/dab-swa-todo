@@ -352,5 +352,5 @@ MigrationBackup/
 # Custom
 .env
 .db/
-.vscode/
+
 *.bat

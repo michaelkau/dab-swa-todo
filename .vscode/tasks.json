@@ -1,0 +1,75 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Initialize Dev Environment",
+			"type": "shell",
+			"windows": {
+				"command": "C:\\devtools\\initdevenv.bat",
+				"options": {
+					"shell": {
+						"executable": "cmd.exe",
+						"args": [
+							"/C"
+						]
+					}
+				}
+			},
+			"group": "none",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Set Path",
+			"type": "shell",
+			"windows": {
+				"command": "SET PATH=%MYPATH%;%PATH%",
+				"options": {
+					"shell": {
+						"executable": "cmd.exe",
+						"args": [
+							"/C"
+						]
+					}
+				}
+			},
+			"group": "none",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "func",
+			"label": "func: host start",
+			"command": "host start",
+			"problemMatcher": "$func-node-watch",
+			"isBackground": true,
+			"dependsOn": "npm install (functions)",
+			"options": {
+				"cwd": "${workspaceFolder}/api"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm install (functions)",
+			"command": "npm install",
+			"options": {
+				"cwd": "${workspaceFolder}/api"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm prune (functions)",
+			"command": "npm prune --production",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/api"
+			}
+		}
+	]
+}
